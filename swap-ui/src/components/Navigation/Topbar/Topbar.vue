@@ -8,14 +8,14 @@
       <div class="top-bar__center-col">
         <BaseButton
           class="top-bar__menu-item"
-          :text="topBarMessages.postTask"
+          :text="'Post a task'"
           @click="navigateToPath('/post', tabs.NEW_JOB)"
         />
         <span
           class="top-bar__menu-item"
           @click="navigateToPath('/jobs', tabs.JOBS)"
         >
-          {{ topBarMessages.browseTasks }}
+          Browse tasks
         </span>
       </div>
       <div class="top-bar__right-col" v-if="authenticated">
@@ -48,11 +48,11 @@
           <v-list>
             <v-list-item @click="navigateToPath('/profile', tabs.PROFILE)">
               <v-list-item-title>
-                {{ topBarMessages.myProfile }}
+                My profile
               </v-list-item-title>
             </v-list-item>
             <v-list-item @click="onSignOut">
-              <v-list-item-title>{{ topBarMessages.logOut }}</v-list-item-title>
+              <v-list-item-title>Log out</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -62,18 +62,17 @@
           class="top-bar__menu-item"
           @click="navigateToPath('/signup', tabs.SIGN_UP)"
         >
-          {{ topBarMessages.signUp }}
+          Sign up
         </span>
         <span
           class="top-bar__menu-item"
           @click="navigateToPath('/signin', tabs.SIGN_IN)"
         >
-          {{ topBarMessages.logIn }}
+          Log in
         </span>
         <BaseButton
-          :text="topBarMessages.becomeASwaper"
+          :text="'Become a Swapper'"
           :secondary="true"
-          @click="navigateToPath('/newswaper')"
         />
       </div>
     </div>
@@ -117,17 +116,39 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from "vue";
-// import { Tabs } from "@/utils/consts";
-// import { EventBus } from "@/utils/eventBus";
-// import { navigationIcons } from "@/assets/icons/icons";
-// import BaseIcon from "../../Base/BaseIcon.vue";
-// import BaseButton from "@/components/Base/BaseButton.vue";
-import ResponsiveMixin from "../../../mixins/ResponsiveMixin";
+<script lang="ts">
+import { Tabs } from "@/utils/consts";
 
-const { isMobile } = ResponsiveMixin();
+import { navigationIcons } from "@/assets/icons/icons";
 
+import BaseIcon from "../../Base/BaseIcon.vue";
+import BaseButton from "@/components/Base/BaseButton.vue";
+
+@Component({
+  components: {
+    BaseIcon,
+    BaseButton,
+  },
+})
+export default class TopBar extends Mixins(ResponsiveMixin) {
+
+  public navigationIcons = navigationIcons;
+  public tabs = Tabs;
+
+  public isModalVisible = false;
+  public authenticated = false;
+  public isMobile = false;
+
+  public navigateToPath(path, tab) {
+    if (this.$route.path !== path) {
+      this.$router.push(path);    }
+  }
+
+  public onSignOut() {
+    console.log('signing out...');
+  }
+
+}
 </script>
 
 <style lang="scss">
