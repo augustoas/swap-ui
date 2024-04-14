@@ -16,7 +16,6 @@
     "types": [
       "node",
       "vuetify",
-      "vite-plugin-pwa/client"
     ],
     "paths": {
       "@/*": ["src/*"]
