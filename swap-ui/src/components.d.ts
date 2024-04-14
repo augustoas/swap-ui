@@ -7,8 +7,12 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    AppFooter: typeof import('./components/AppFooter.vue')['default']
+    AuthForm: typeof import('./components/Forms/AuthForm/AuthForm.vue')['default']
+    Bottombar: typeof import('./components/Navigation/Bottombar/Bottombar.vue')['default']
+    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Topbar: typeof import('./components/Navigation/Topbar/Topbar.vue')['default']
   }
 }
