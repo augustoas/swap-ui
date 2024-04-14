@@ -1,18 +1,22 @@
-import { Vue, Component } from "vue-property-decorator";
+import { ref, onMounted, onUnmounted } from "vue";
 
-@Component
-export default class ResponsiveMixin extends Vue {
-  public isMobile: boolean = window.innerWidth < 840;
-  created() {
-    window.addEventListener("resize", this.checkIsMobile);
-    this.checkIsMobile();
-  }
+export default function useResponsiveMixin() {
+  const isMobile = ref(window.innerWidth < 840);
 
-  beforeDestroy() {
-    window.removeEventListener("resize", this.checkIsMobile);
-  }
+  const checkIsMobile = () => {
+    isMobile.value = window.innerWidth < 840;
+  };
 
-  checkIsMobile() {
-    this.isMobile = window.innerWidth < 840;
-  }
+  onMounted(() => {
+    window.addEventListener("resize", checkIsMobile);
+    checkIsMobile();
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("resize", checkIsMobile);
+  });
+
+  return {
+    isMobile
+  };
 }

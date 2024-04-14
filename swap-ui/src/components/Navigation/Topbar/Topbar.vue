@@ -117,56 +117,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import { namespace } from "vuex-class";
-import { Tabs } from "@/utils/consts";
-import { EventBus } from "@/utils/eventBus";
+<script lang="ts" setup>
+import { ref } from "vue";
+// import { Tabs } from "@/utils/consts";
+// import { EventBus } from "@/utils/eventBus";
+// import { navigationIcons } from "@/assets/icons/icons";
+// import BaseIcon from "../../Base/BaseIcon.vue";
+// import BaseButton from "@/components/Base/BaseButton.vue";
+import ResponsiveMixin from "../../../mixins/ResponsiveMixin";
 
-import { ActionsSignatures, State } from "@/store/auth";
-import { Component, Mixins } from "vue-property-decorator";
+const { isMobile } = ResponsiveMixin();
 
-import { navigationIcons } from "@/assets/icons/icons";
-
-import ResponsiveMixin from "@/mixins/responsiveMixin";
-
-import BaseIcon from "../../Base/BaseIcon.vue";
-import BaseButton from "@/components/Base/BaseButton.vue";
-
-const auth = namespace("auth");
-
-@Component({
-  components: {
-    BaseIcon,
-    BaseButton,
-  },
-})
-export default class TopBar extends Mixins(ResponsiveMixin) {
-  @auth.State("authenticated")
-  public authenticated!: State["authenticated"];
-
-  @auth.Action
-  public signOut!: ActionsSignatures["signOut"];
-
-  public navigationIcons = navigationIcons;
-  public tabs = Tabs;
-
-  public isModalVisible = false;
-
-  get topBarMessages() {
-    return (this.$i18n && this.$i18n.messages[this.$i18n.locale].topBar) || {};
-  }
-
-  public navigateToPath(path, tab) {
-    if (this.$route.path !== path) {
-      this.$router.push(path);
-      EventBus.$emit("updateCurrentTab", tab);
-    }
-  }
-
-  public onSignOut() {
-    this.signOut();
-  }
-}
 </script>
 
 <style lang="scss">
