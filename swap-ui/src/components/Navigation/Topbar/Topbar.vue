@@ -118,15 +118,30 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-// import { Tabs } from "@/utils/consts";
-// import { EventBus } from "@/utils/eventBus";
-// import { navigationIcons } from "@/assets/icons/icons";
-// import BaseIcon from "../../Base/BaseIcon.vue";
-// import BaseButton from "@/components/Base/BaseButton.vue";
-import ResponsiveMixin from "../../../mixins/ResponsiveMixin";
+  import { useRouter } from "vue-router";
+  import { useRoute } from "vue-router";
+  import { ref } from "vue";
+  // import { Tabs } from "@/utils/consts";
+  // import { EventBus } from "@/utils/eventBus";
+  // import { navigationIcons } from "@/assets/icons/icons";
+  // import BaseIcon from "../../Base/BaseIcon.vue";
+  // import BaseButton from "@/components/Base/BaseButton.vue";
+  import ResponsiveMixin from "../../../mixins/ResponsiveMixin";
 
-const { isMobile } = ResponsiveMixin();
+  const { isMobile } = ResponsiveMixin();
+  const router = useRouter();
+  const route = useRoute();
+
+const navigateToPath = (path: string, tab: string) => {
+    if (route.path !== path) {
+      router.push(path);
+      setCurrentTab(tab);
+    }
+  };
+  const setCurrentTab = (tab: string) => {
+    // Implement setCurrentTab logic here
+  };
+
 
 </script>
 
