@@ -5,7 +5,7 @@
       <v-main class="main-class">
         <router-view />
       </v-main>
-      <BottomBar />
+      <!-- <BottomBar /> -->
     </div>
   </v-app>
 </template>
@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import Vue from "vue";
 import TopBar from "./components/Navigation/TopBar/TopBar.vue"
-import BottomBar from "./components/Navigation/BottomBar/BottomBar.vue";
+//import BottomBar from "./components/Navigation/BottomBar/BottomBar.vue";
 
 </script>
 
