@@ -1,0 +1,101 @@
+:root {
+  --background-color-main: white;
+  --navbar-icon-grey: #DBDDE0;
+  --grey: #F6F8FB;
+  --disable-grey: #a4abb6;
+  --base-dark-blue: #2a2b47;
+  --base-dark-blue-lighter: #3b4e5a;
+  --base-light-blue: #88d1e2;;
+}
+
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    font-family: 'Lato', sans-serif !important;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 60px;
+    letter-spacing: 0.4px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 46px;
+    letter-spacing: 0.2px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.2px;
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: 0.2px;
+  }
+
+  h5 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.2px;
+  }
+
+  h6 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+  }
+}
+
+#app {
+  background-color: var(--background-color-main);
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #52575C;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.base__input-error {
+  border: 1px solid red !important;
+}
+
+.base__input-error:focus {
+  outline: none !important;
+}
+
+.base__error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
