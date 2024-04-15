@@ -16,7 +16,6 @@ declare module 'vue' {
     NewJobForm: typeof import('./components/Forms/NewJobForm/NewJobForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Topbar: typeof import('./components/Navigation/TopBar/Topbar.vue')['default']
     TopBar: typeof import('./components/Navigation/TopBar/TopBar.vue')['default']
   }
 }
