@@ -11,6 +11,8 @@
     },
     "resolveJsonModule": true,
     "types": [
+      "node",
+      "vuetify",
       "vite/client",
       "vite-plugin-vue-layouts/client",
       "unplugin-vue-router/client"
@@ -25,7 +27,11 @@
     "skipLibCheck": true
   },
   "include": [
-    "./src/typed-router.d.ts"
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts"
   ],
   "exclude": ["dist", "node_modules", "cypress"],
   "references": [{ "path": "./tsconfig.node.json" }],

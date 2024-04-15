@@ -125,9 +125,9 @@
   // import { navigationIcons } from "@/assets/icons/icons";
   // import BaseIcon from "../../Base/BaseIcon.vue";
   // import BaseButton from "@/components/Base/BaseButton.vue";
-  import ResponsiveMixin from "../../../mixins/responsiveMixin";
-  import { navigationIcons } from "../../../assets/icons/icons";
-  import { Tabs } from "../../../utils/consts";
+  import ResponsiveMixin from "@/mixins/responsiveMixin";
+  import { navigationIcons } from "@/assets/icons/icons";
+  import { Tabs } from "@/utils/consts";
 
   const { isMobile } = ResponsiveMixin();
   const router = useRouter();
