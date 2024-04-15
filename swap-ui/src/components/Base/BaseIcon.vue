@@ -1,29 +1,36 @@
 <template>
   <div class="icon-wrapper">
-    <svg :width="width" :height="height" :viewBox="viewBox" fill="none">
+    <svg :width="props.width" :height="props.height" :viewBox="props.viewBox" fill="none">
       <path :d="icon.path" :fill="getIconFilled()" />
     </svg>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { SvgIcon } from "@/types/types";
+<script lang="ts" setup>
+import { SvgIcon } from "../../types/global.types";
 
-
-@Component
-export default class BaseIcon extends Vue {
-  @Prop({ required: true }) readonly icon!: SvgIcon;
-  @Prop({ default: 18 }) readonly width!: string | number;
-  @Prop({ default: 18 }) readonly height!: string | number;
-  @Prop({ default: "0 0 18 18" }) readonly viewBox!: string;
-  @Prop({ default: false }) readonly fill!: boolean;
-  @Prop({ default: "var(--base-dark-blue)" }) readonly color!: string;
-
-  getIconFilled() {
-    return this.fill ? this.color : "var(--navbar-icon-grey)";
+  export interface Props {
+    icon: SvgIcon,
+    width?: number,
+    height?: string | number,
+    viewBox?: string,
+    fill?: boolean,
+    color?: string
   }
-}
+
+  const props = withDefaults(defineProps<Props>(), {
+    width: 18,
+    height: 18,
+    fill: false,
+    color: "var(--base-dark-blue)",
+    viewBox: "0 0 18 18"
+  })
+
+  const getIconFilled = () => {
+    return props.fill ? props.color : "var(--navbar-icon-grey)";
+  };
+
+
 </script>
 
 <style scoped>
