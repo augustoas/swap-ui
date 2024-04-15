@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-  import ResponsiveMixin from "../mixins/ResponsiveMixin";
+  import ResponsiveMixin from "../mixins/responsiveMixin";
   const { isMobile } = ResponsiveMixin();
 </script>
 

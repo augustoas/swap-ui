@@ -6,11 +6,11 @@
         <img src="@/assets/swap-logo-brand.png" alt="Swap" />
       </div>
       <div class="top-bar__center-col">
-        <BaseButton
+        <!-- <BaseButton
           class="top-bar__menu-item"
           :text="'Post a task'"
           @click="navigateToPath('/post', tabs.NEW_JOB)"
-        />
+        /> -->
         <span
           class="top-bar__menu-item"
           @click="navigateToPath('/jobs', tabs.JOBS)"
@@ -70,10 +70,10 @@
         >
           Log in
         </span>
-        <BaseButton
+        <!-- <BaseButton
           :text="'Become a Swapper'"
           :secondary="true"
-        />
+        /> -->
       </div>
     </div>
     <!-- Mobile version -->
@@ -125,7 +125,7 @@
   // import { navigationIcons } from "@/assets/icons/icons";
   // import BaseIcon from "../../Base/BaseIcon.vue";
   // import BaseButton from "@/components/Base/BaseButton.vue";
-  import ResponsiveMixin from "../../../mixins/ResponsiveMixin";
+  import ResponsiveMixin from "../../../mixins/responsiveMixin";
   import { navigationIcons } from "../../../assets/icons/icons";
   import { Tabs } from "../../../utils/consts";
 
